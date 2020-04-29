@@ -1,5 +1,6 @@
 package lab7.bsu.rct.group8.roslik.lab6.var1c;
 
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -38,7 +39,7 @@ public class PrivateDialogFrame extends JFrame {
 	public PrivateDialogFrame(final User user, MainFrame frame){
 		
 		messenger = frame.getMessenger();
-		setTitle("Беседа с " + user.getName());
+		setTitle("Р‘РµСЃРµРґР° СЃ " + user.getName());
 		setMinimumSize(new Dimension(WIDTH, HEIGHT));
 		
 		final Toolkit kit = Toolkit.getDefaultToolkit();
@@ -52,8 +53,8 @@ public class PrivateDialogFrame extends JFrame {
 		final JScrollPane scrollPaneOutgoing = new JScrollPane(textAreaOut);
 		
 		final JPanel messagePanel = new JPanel();
-		messagePanel.setBorder(BorderFactory.createTitledBorder("Сообщение"));
-		final JButton sendButton = new JButton("Отправить");
+		messagePanel.setBorder(BorderFactory.createTitledBorder("РЎРѕРѕР±С‰РµРЅРёРµ"));
+		final JButton sendButton = new JButton("РћС‚РїСЂР°РІРёС‚СЊ");
 		sendButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				messenger.sendMessage(user, textAreaOut.getText(), PrivateDialogFrame.this);

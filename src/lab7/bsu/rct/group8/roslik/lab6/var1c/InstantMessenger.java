@@ -39,7 +39,7 @@ public class InstantMessenger {
 		try {
 			if (message.isEmpty()) {
 				JOptionPane.showMessageDialog(frame,
-						"Введите текст сообщения", "Ошибка",
+						"Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚ СЃРѕРѕР±С‰РµРЅРёСЏ", "РћС€РёР±РєР°",
 						JOptionPane.ERROR_MESSAGE);
 				return;
 			}
@@ -52,18 +52,18 @@ public class InstantMessenger {
 			out.writeUTF(user.getName());
 			out.writeUTF("true");
 			socket.close();
-			frame.getTextAreaIn().append("Я -> (" + user.getAddres() + "): "
+			frame.getTextAreaIn().append("РЇ -> (" + user.getAddres() + "): "
 					+ message + "\n");
 			frame.getTextAreaOut().setText("");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(frame, 
-					"Не удалось отправить сообщение: узел-адресат не найден",
-					"Ошибка", JOptionPane.ERROR_MESSAGE);
+					"РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ: СѓР·РµР»-Р°РґСЂРµСЃР°С‚ РЅРµ РЅР°Р№РґРµРЅ",
+					"РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(frame, 
-					"Не удалось отправить сообщение", "Ошибка",
+					"РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ", "РћС€РёР±РєР°",
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
@@ -72,13 +72,13 @@ public class InstantMessenger {
 		try {
 			if (destinationName.isEmpty()) {
 				JOptionPane.showMessageDialog(frame,
-						"Введите имя узла-получателя", "Ошибка",
+						"Р’РІРµРґРёС‚Рµ РёРјСЏ СѓР·Р»Р°-РїРѕР»СѓС‡Р°С‚РµР»СЏ", "РћС€РёР±РєР°",
 						JOptionPane.ERROR_MESSAGE);
 				return;	
 			}
 			if (message.isEmpty()) {
 				JOptionPane.showMessageDialog(frame,
-						"Введите текст сообщения", "Ошибка",
+						"Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚ СЃРѕРѕР±С‰РµРЅРёСЏ", "РћС€РёР±РєР°",
 						JOptionPane.ERROR_MESSAGE);
 				return;
 			}
@@ -87,7 +87,7 @@ public class InstantMessenger {
 				temp = dataBase.getUser(destinationName);
 				} else {
 					JOptionPane.showMessageDialog(frame,
-							"Такого пользователя не существует", "Ошибка",
+							"РўР°РєРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚", "РћС€РёР±РєР°",
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
@@ -100,17 +100,17 @@ public class InstantMessenger {
 			out.writeUTF(temp.getName());
 			out.writeUTF("false");
 			socket.close();
-			frame.getTextAreaIncoming().append("Я -> (" + temp.getAddres() + "): " + message + "\n");
+			frame.getTextAreaIncoming().append("РЇ -> (" + temp.getAddres() + "): " + message + "\n");
 			frame.getTextAreaOutgoing().setText("");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(frame, 
-					"Не удалось отправить сообщение: узел-адресат не найден",
-					"Ошибка", JOptionPane.ERROR_MESSAGE);
+					"РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ: СѓР·РµР»-Р°РґСЂРµСЃР°С‚ РЅРµ РЅР°Р№РґРµРЅ",
+					"РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(frame, 
-					"Не удалось отправить сообщение", "Ошибка",
+					"РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ", "РћС€РёР±РєР°",
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
@@ -134,15 +134,15 @@ public class InstantMessenger {
 													.getAddress()
 													.getHostAddress();
 						if (flag.equals("true")){
-							dialogFrame.getTextAreaIn().append(name + " -> (" + address + "): " +  "Привет, "+ senderName  + "!\n");
+							dialogFrame.getTextAreaIn().append(name + " -> (" + address + "): " +  "РџСЂРёРІРµС‚, "+ senderName  + "!\n");
 						
 						}else{
-						frame.getTextAreaIncoming().append(name + " -> (" + address + "): " +  "Привет, "+ senderName  + "!\n");
+						frame.getTextAreaIncoming().append(name + " -> (" + address + "): " +  "РџСЂРёРІРµС‚, "+ senderName  + "!\n");
 							}
 						}
 					} catch (IOException e) {
 						e.printStackTrace();
-						JOptionPane.showMessageDialog(frame, "Ошибка в работе сервера", "Ошибка", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(frame, "РћС€РёР±РєР° РІ СЂР°Р±РѕС‚Рµ СЃРµСЂРІРµСЂР°", "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 					}
 				}
 		}).start();
